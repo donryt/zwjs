@@ -12,10 +12,10 @@ from . import process
 from . import reduction
 from . import semaphore_tracker
 from . import spawn
-from . import util
+from . import util 
 
 __all__ = ['ensure_running', 'get_inherited_fds', 'connect_to_new_process',
-           'set_forkserver_preload']
+           'set_forkserver_preload'] 
 
 #
 #
@@ -33,13 +33,13 @@ class ForkServer(object):
     def __init__(self):
         self._forkserver_address = None
         self._forkserver_alive_fd = None
-        self._inherited_fds = None
+        self._inherited_fds = None  
         self._lock = threading.Lock()
         self._preload_modules = ['__main__']
 
     def set_forkserver_preload(self, modules_names):
         '''Set list of module names to try to load in forkserver process.'''
-        if not all(type(mod) is str for mod in self._preload_modules):
+        if not all(type(mod) is str for mod in self._preload_modules):  
             raise TypeError('module_names must be a list of strings')
         self._preload_modules = modules_names
 
